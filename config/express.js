@@ -4,6 +4,7 @@ module.exports = function(app, config) {
   app.configure(function () {
     app.use(express.compress());
 
+    app.use(require('less-middleware')({ src: config.root + '/public' }));
     app.use(express.static(config.root + '/public'));
 
     app.set('port', config.port);
@@ -15,7 +16,6 @@ module.exports = function(app, config) {
     app.use(express.methodOverride());
     app.use(app.router);
     
-    app.use(require('less-middleware')({ src: config.root + '/public' }));
 
     app.use(function(req, res) {
       res.status(404).render('404', { title: '404' });
