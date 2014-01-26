@@ -14,5 +14,5 @@ results
 npm-debug.log
 node_modules
 
-app/components
-app/less/*.css
+public/components
+public/less/*.css
